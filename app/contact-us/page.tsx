@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Mail, Phone, MapPin, Send, MessageSquare, PawPrint, Sparkles } from 'lucide-react';
+import { Mail, Send, MessageSquare, PawPrint, Sparkles } from 'lucide-react';
 
 export default function ContactUs() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -40,7 +40,7 @@ export default function ContactUs() {
             Let's Get in Touch! <PawPrint className="inline-block mb-4 text-yellow-800" size={48} />
           </h1>
           <p className="text-yellow-100 text-xl font-medium max-w-2xl mx-auto">
-            Have questions about Mazito Social, need help with your account, or just want to share a cute picture of your hamster? We'd love to hear from you.
+            Have questions about Mazito Social, need help with your account, or just want to share feedback? We'd love to hear from you.
           </p>
         </div>
       </section>
@@ -50,61 +50,33 @@ export default function ContactUs() {
         <div className="bg-white rounded-[3rem] shadow-xl shadow-gray-200/50 overflow-hidden border border-gray-100 flex flex-col lg:flex-row">
           
           {/* Left Side: Contact Information */}
-          <div className="bg-gray-900 text-white p-10 lg:p-14 lg:w-2/5 relative overflow-hidden flex flex-col justify-between">
+          <div className="bg-gray-900 text-white p-10 lg:p-14 lg:w-2/5 relative overflow-hidden flex flex-col">
             <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                {/* Abstract pattern / background */}
                <div className="absolute -right-10 -top-10 w-64 h-64 bg-yellow-500 rounded-full blur-3xl"></div>
                <div className="absolute -left-10 -bottom-10 w-64 h-64 bg-orange-500 rounded-full blur-3xl"></div>
             </div>
 
-            <div className="relative z-10">
+            <div className="relative z-10 flex-grow">
               <h2 className="text-3xl font-black mb-2">Contact Information</h2>
               <p className="text-gray-400 mb-10">Fill up the form and our Team will get back to you within 24 hours.</p>
 
               <div className="space-y-8">
                 <div className="flex items-center gap-4 group cursor-pointer">
                   <div className="w-12 h-12 bg-gray-800 text-yellow-500 rounded-full flex items-center justify-center group-hover:bg-yellow-500 group-hover:text-gray-900 transition-colors">
-                    <Phone size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400 font-medium">Call Us</p>
-                    <p className="text-lg font-bold">+1 (555) 123-4567</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 group cursor-pointer">
-                  <div className="w-12 h-12 bg-gray-800 text-yellow-500 rounded-full flex items-center justify-center group-hover:bg-yellow-500 group-hover:text-gray-900 transition-colors">
                     <Mail size={20} />
                   </div>
                   <div>
                     <p className="text-sm text-gray-400 font-medium">Email Us</p>
-                    <p className="text-lg font-bold">hello@mazitosocial.com</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4 group cursor-pointer">
-                  <div className="w-12 h-12 bg-gray-800 text-yellow-500 rounded-full flex items-center justify-center group-hover:bg-yellow-500 group-hover:text-gray-900 transition-colors">
-                    <MapPin size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400 font-medium">Headquarters</p>
-                    <p className="text-lg font-bold">Mazito Hub, Innovation Street<br/>Tech City, 10010</p>
+                    <p className="text-lg font-bold">support@mazito.io</p>
                   </div>
                 </div>
               </div>
             </div>
-
-            {/* Social Links */}
-            <div className="flex gap-4 mt-16 relative z-10">
-              <div className="w-10 h-10 bg-gray-800 rounded-full hover:bg-yellow-500 transition-colors cursor-pointer flex items-center justify-center">
-                <span className="font-bold text-sm">X</span>
-              </div>
-              <div className="w-10 h-10 bg-gray-800 rounded-full hover:bg-yellow-500 transition-colors cursor-pointer flex items-center justify-center">
-                <span className="font-bold text-sm">IG</span>
-              </div>
-              <div className="w-10 h-10 bg-gray-800 rounded-full hover:bg-yellow-500 transition-colors cursor-pointer flex items-center justify-center">
-                <span className="font-bold text-sm">TT</span>
-              </div>
+            
+            {/* Added a small decorative element to balance the empty space at the bottom */}
+            <div className="relative z-10 mt-auto pt-16 opacity-50">
+               <PawPrint size={64} className="text-gray-800" />
             </div>
           </div>
 
