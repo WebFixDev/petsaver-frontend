@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { PawPrint, Menu, X } from 'lucide-react';
+import { PawPrint, Menu, X, UserCircle } from 'lucide-react'; // UserCircle icon add kiya
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +38,16 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
+          
+          {/* ✅ DESKTOP LOGIN BUTTON */}
+          <div className="h-6 w-px bg-gray-200 mx-2"></div> {/* Separator Line */}
+          <Link 
+            href="/login" 
+            className="flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white rounded-xl hover:bg-black transition-all hover:scale-105 active:scale-95 font-bold shadow-md shadow-gray-200"
+          >
+            <UserCircle size={18} className="text-yellow-500" />
+            Login
+          </Link>
         </div>
 
         {/* --- MOBILE MENU BUTTON --- */}
@@ -59,11 +69,23 @@ export default function Navbar() {
                 key={link.name} 
                 href={link.href} 
                 className="hover:text-yellow-500 transition-colors"
-                onClick={() => setIsOpen(false)} // Link click hone par menu close ho jaye
+                onClick={() => setIsOpen(false)} 
               >
                 {link.name}
               </Link>
             ))}
+            
+            {/* ✅ MOBILE LOGIN BUTTON */}
+            <div className="pt-4 border-t border-gray-100">
+              <Link 
+                href="/login" 
+                className="flex items-center justify-center gap-2 w-full py-3.5 bg-gray-900 text-white rounded-xl hover:bg-black transition-all font-bold"
+                onClick={() => setIsOpen(false)}
+              >
+                <UserCircle size={20} className="text-yellow-500" />
+                Login to Admin
+              </Link>
+            </div>
           </div>
         </div>
       )}
