@@ -8,7 +8,9 @@ import {
   Users, 
   Video, 
   LogOut,
-  PawPrint
+  PawPrint,
+  ShieldAlert,
+  Flag
 } from 'lucide-react';
 import { getLocalAdminUserAction, logoutAdminAction } from '@/actions/auth';
 
@@ -35,6 +37,8 @@ export default function AdminSidebar({ collapsed }: AdminSidebarProps) {
     // { name: 'Dashboard', icon: LayoutDashboard, path: '/admin' },
     { name: 'User Management', icon: Users, path: '/admin/users' },
     { name: 'Videos', icon: Video, path: '/admin/videos' },
+    { name: 'User Reports', icon: ShieldAlert, path: '/admin/reports/users' },
+    { name: 'Video Reports', icon: Flag, path: '/admin/reports/videos' },
   ];
 
   const displayName = adminUser?.username || 'Admin';
