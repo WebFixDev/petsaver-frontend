@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { 
-  PlayCircle, Heart, MessageCircle, Trash2, 
+  PlayCircle, Heart, MessageCircle, Eye, Trash2, 
   Globe, Lock, Users, X
 } from 'lucide-react';
 
@@ -14,6 +14,7 @@ interface VideoProps {
     user: string;
     handle: string;
     likes: string | number;
+    views?: string | number;
     comments: string | number;
     duration: string;
     privacy?: 'public' | 'private' | 'friends';
@@ -89,12 +90,17 @@ export default function VideoCard({ video, onRemove }: VideoProps) {
           {/* Stats & Delete Button */}
           <div className="mt-auto pt-4 border-t border-gray-100">
             <div className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-4 text-gray-500">
-                <span className="flex items-center gap-1.5 text-xs font-bold">
-                  <Heart size={14} /> {video.likes}
+              <div className="flex items-center gap-3 text-gray-500">
+                {video.views !== undefined && (
+                  <span className="flex items-center gap-1 text-xs font-bold text-gray-600" title="Views">
+                    <Eye size={14} className="text-blue-500" /> {video.views}
+                  </span>
+                )}
+                <span className="flex items-center gap-1 text-xs font-bold text-gray-600" title="Likes">
+                  <Heart size={14} className="text-rose-500" /> {video.likes}
                 </span>
-                <span className="flex items-center gap-1.5 text-xs font-bold">
-                  <MessageCircle size={14} /> {video.comments}
+                <span className="flex items-center gap-1 text-xs font-bold text-gray-600" title="Comments">
+                  <MessageCircle size={14} className="text-amber-500" /> {video.comments}
                 </span>
               </div>
               <button 

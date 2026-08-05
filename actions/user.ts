@@ -16,6 +16,8 @@ interface GetAllUsersParams {
   isActive?: boolean;
   isBanned?: boolean;
   role?: string;
+  fromDate?: string;
+  toDate?: string;
 }
 
 interface GetAllUsersResponse {
@@ -53,6 +55,8 @@ export async function getAllUsersAction(params: GetAllUsersParams = {}): Promise
     if (params.isActive !== undefined) queryParams.set('isActive', params.isActive.toString());
     if (params.isBanned !== undefined) queryParams.set('isBanned', params.isBanned.toString());
     if (params.role) queryParams.set('role', params.role);
+    if (params.fromDate) queryParams.set('fromDate', params.fromDate);
+    if (params.toDate) queryParams.set('toDate', params.toDate);
 
     // 2. URL Fix: '/users/all-users' (Express routing ke mutabiq)
     const url = `${BASE_URL}${API_PREFIX}/users/all-users?${queryParams.toString()}`;

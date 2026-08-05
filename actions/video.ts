@@ -169,8 +169,13 @@ interface GetAllVideosParams {
   search?: string;          // caption ya username ke hisaab se
   status?: string;          // published, draft, processing, failed
   privacy?: string;         // public, friends, private
-  sortBy?: string;          // createdAt, views, likes
+  sortBy?: string;          // createdAt, views, likes, comments
   sortOrder?: 'asc' | 'desc';
+  fromDate?: string;
+  toDate?: string;
+  minLikes?: number;
+  minViews?: number;
+  minComments?: number;
 }
 
 interface GetAllVideosResponse {
@@ -205,6 +210,11 @@ export async function getAllVideosAction(params: GetAllVideosParams = {}): Promi
     if (params.privacy) queryParams.set('privacy', params.privacy);
     if (params.sortBy) queryParams.set('sortBy', params.sortBy);
     if (params.sortOrder) queryParams.set('sortOrder', params.sortOrder);
+    if (params.fromDate) queryParams.set('fromDate', params.fromDate);
+    if (params.toDate) queryParams.set('toDate', params.toDate);
+    if (params.minLikes !== undefined && params.minLikes > 0) queryParams.set('minLikes', params.minLikes.toString());
+    if (params.minViews !== undefined && params.minViews > 0) queryParams.set('minViews', params.minViews.toString());
+    if (params.minComments !== undefined && params.minComments > 0) queryParams.set('minComments', params.minComments.toString());
 
     const url = `${BASE_URL}${API_PREFIX}/videos/all?${queryParams.toString()}`;
 
