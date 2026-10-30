@@ -26,6 +26,7 @@ export default function AdminHeader({ onToggleSidebar }: AdminHeaderProps) {
     if (pathname === '/admin') return 'Dashboard';
     if (pathname === '/admin/users') return 'User Management';
     if (pathname === '/admin/videos') return 'Content Moderation';
+    if (pathname === '/admin/music') return 'Music & Sounds Library';
     if (pathname.startsWith('/admin/users/')) return 'User Details';
     if (pathname.startsWith('/admin/videos/')) return 'Video Details';
     return 'Admin Panel';
